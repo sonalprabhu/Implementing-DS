@@ -1,0 +1,65 @@
+T-> Generics
+public class Array <T> implements Iterable <T>{
+private T[] arr;
+private int n;
+private int capacity;
+
+public Array(){
+this(10);
+}
+public Array(int capacity){
+this.capacity=capacity;
+arr=(T[])new Object[capacity];
+}
+
+public int size()
+{
+return n;
+}
+public boolean isEmpty(){
+return size()==0;
+}
+
+public void set(int ind,T ele)
+{
+  arr[index]=ele;
+}
+
+public T get(int index){
+return arr[index];
+}
+public void add(T ele)
+{
+  if((n+1)>=capacity)
+  {
+    if(capacity==0)
+    capacity=1;
+    else
+    capacity*=2;
+    
+    T[] newarr=(T[]) new Object[capacity];
+    for(int i=0;i<n;i++)
+    newarr[i]=arr[i];
+    arr=newarr;
+  }
+  arr[n++]=ele;
+  
+}
+public T removeAt(int index)
+{
+   if(index<=0 || index>=len)
+   throw new IndexOutOfBoundException();
+   T data=arr[index];
+   T[] newarr=(T[])new Object[capacity];
+   for(int i=0,j=-1;i<n;i++)
+   {
+    if(i!=index){
+    j++;
+    newarr[j]=arr[i];
+    }
+   }
+   arr=newarr;
+   capacity=--n;
+   return
+}
+}
