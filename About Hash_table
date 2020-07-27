@@ -1,0 +1,36 @@
+Hash table is a data structure that performs all operations at O(1) average time.
+When to use hashing over array?
+-Less number of locations and more number of keys
+
+Best Hash Function?
+-Minimum collision
+-Easy to compute
+-Results in even distribution of keys
+
+Terms related to Hash Table:
+1. Collision: When 2 or more keys are alloted the same slot
+2. Collision Resolution: Process of finding an alternate location for the key
+3. Load factor: Total number of elements in hash table / Size of hash table
+
+Techniques to perform hashing:
+1. Direct chaining: uses a seperate linked list for each slot to accomdate keys hashing to the same location
+    i. Seperate Chaining
+2. Open addressing: all keys are stored in the hash table itself
+    i. Linear probing ---> rehash(key)= (n+1)%table_size
+    ii. Quadratic probing ---> rehash(key)= (n+i^2)%table_size
+    iii. Double hashing ---> rehash(key)=h1(key)+ i*h2(key)
+                             h2!=0 && h2!=h1
+ 
+2 TYPES OF CLUSTERING occurs in Open Addressing hashing technique:
+1. Primary Clustering
+-- Occurs in linear probing
+-- Causes performance issues
+
+2. Secondary Clustering
+-- Occurs in quadratic probing and to some extent in double hashing
+
+How is Hashing O(1) if multiple keys map to the same location and we have to introduce a linked list?
+--- We ensure that each slot/block on average stores maximum number of elements less than the load factor
+----Load factor is a constant
+-----If the max elements becomes greater than LOAD FACTOR, we rehash the table
+
